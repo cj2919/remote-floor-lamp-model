@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive remote-controlled floor lamp model.">
+  <title>Remote Floor Lamp Model</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">COMPUTATIONAL THINKING MODEL</p>
+      <h1 id="page-title">Remote Floor Lamp</h1>
+      <p>Explore how inputs change a lamp’s state. Switch it on, choose a mood, set the brightness, or start the timer.</p>
+
+      <div class="state-card" aria-live="polite">
+        <span class="status-dot" id="statusDot"></span>
+        <div>
+          <small>Current state</small>
+          <strong id="statusText">Lamp is off</strong>
+        </div>
+      </div>
+
+      <div class="concept-note">
+        <strong>Input → Process → Output</strong>
+        <span>Button click → JavaScript decision → Lamp changes</span>
+      </div>
+    </section>
+
+    <section class="lamp-stage" aria-label="Interactive lamp preview">
+      <div class="glow" id="glow"></div>
+      <div class="lamp" id="lamp">
+        <div class="shade" id="shade"><div class="bulb"></div></div>
+        <div class="neck"></div>
+        <div class="pole"></div>
+        <div class="base"></div>
+      </div>
+      <div class="floor-line"></div>
+      <p class="preview-label" id="previewLabel">OFF</p>
+    </section>
+
+    <section class="remote" aria-labelledby="remote-title">
+      <div class="remote-heading">
+        <div>
+          <p class="eyebrow">CONTROLS</p>
+          <h2 id="remote-title">Lamp Remote</h2>
+        </div>
+        <button class="power-button" id="powerButton" type="button" aria-pressed="false">
+          <span aria-hidden="true">⏻</span> Power
+        </button>
+      </div>
+
+      <fieldset>
+        <legend>Light mode</legend>
+        <div class="button-grid three">
+          <button class="control-button active" data-mode="reading" type="button">
+            <span class="icon white">Aa</span><strong>Reading</strong><small>White light</small>
+          </button>
+          <button class="control-button" data-mode="sleep" type="button">
+            <span class="icon warm">☾</span><strong>Sleep</strong><small>Warm light</small>
+          </button>
+          <button class="control-button" data-mode="exercise" type="button">
+            <span class="icon rainbow">✦</span><strong>Exercise</strong><small>Colorful light</small>
+          </button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Brightness</legend>
+        <div class="button-grid three brightness-buttons">
+          <button class="level-button" data-brightness="low" type="button"><span>◐</span> Low</button>
+          <button class="level-button active" data-brightness="medium" type="button"><span>◑</span> Medium</button>
+          <button class="level-button" data-brightness="high" type="button"><span>●</span> High</button>
+        </div>
+      </fieldset>
+
+      <div class="timer-panel">
+        <div>
+          <strong>30-minute timer</strong>
+          <span id="timerText">Timer is not running</span>
+        </div>
+        <button class="timer-button" id="timerButton" type="button">Start timer</button>
+      </div>
+
+      <label class="demo-toggle">
+        <input id="demoMode" type="checkbox">
+        <span><strong>Quick demo</strong><small>30 minutes becomes 10 seconds for testing</small></span>
+      </label>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
